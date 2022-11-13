@@ -19,7 +19,9 @@ wp-content/plugins/*
 #!wp-content/plugins/sample-*/
 
 # 特定のテーマを除外
-wp-content/themes/twenty*/
+# wp-content/themes/twenty*/
+wp-content/themes/twentytwentyone/
+wp-content/themes/twentytwentytwo/
 
 # nodeの依存ファイルを除外
 node_modules/
