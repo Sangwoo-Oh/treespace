@@ -1,0 +1,113 @@
+@charset "utf-8";
+
+@import "mixin";
+@import "base";
+
+html {
+    font-family: "inter";
+    color: $color-black;
+}
+
+@mixin contentWidth {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+body {}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: $color-black;
+    text-decoration: none;
+}
+
+// ヘッダー
+.header {
+
+    &__inner {
+        @include contentWidth;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+
+        background-color: $color-gray-lt;
+
+        &__logo {
+            img {
+                width: 126px;
+                height: auto;
+            }
+
+            span {
+                font-size: rem(14);
+            }
+        }
+
+        &__nav {
+            nav {
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    li {
+                        &:not(:last-child) {
+                            margin-right: 30px;
+                        }
+
+                        a {
+                            font-size: rem(16);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// メイン
+.main {
+    @include contentWidth;
+
+    h1 {
+        padding: 30px 0;
+    }
+    .pickup {
+
+        &__title {
+            font-size: rem(24);
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+
+            &__item {
+                width: 100%;
+
+                &__thumbnail {
+                    margin-bottom: 10px;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                    }
+                }
+
+                h2 {
+                    font-size: rem(20);
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+// フッター

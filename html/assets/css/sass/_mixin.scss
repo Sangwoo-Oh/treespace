@@ -1,0 +1,17 @@
+// font
+@font-face {
+    font-family: "inter";
+    src: url("../font/inter/Inter-VariableFont_slnt,wght.ttf");
+}
+
+// color
+$color-black: #222222;
+$color-gray: #D9D9D9;
+$color-gray-lt: #FBFBFB;
+
+
+$baseFontSize: 16;
+
+@function rem($pixels) {
+    @return calc($pixels / $baseFontSize * 1rem);
+}

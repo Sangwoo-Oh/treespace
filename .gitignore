@@ -3,7 +3,7 @@
 ## ルートの監視対象
 !wp-content/
 !/.gitignore
-!/assets/
+!/html/
 !README.md
 !/pardot_post/
 
