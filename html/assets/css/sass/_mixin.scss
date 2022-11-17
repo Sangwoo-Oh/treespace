@@ -7,11 +7,18 @@
 // color
 $color-black: #222222;
 $color-gray: #D9D9D9;
+$color-gray2: #EBEBEB;
 $color-gray-lt: #FBFBFB;
+$color-green: #77DD77;
 
 
 $baseFontSize: 16;
 
 @function rem($pixels) {
     @return calc($pixels / $baseFontSize * 1rem);
+}
+
+
+@mixin animation {
+    transition: 0.3s;
 }
