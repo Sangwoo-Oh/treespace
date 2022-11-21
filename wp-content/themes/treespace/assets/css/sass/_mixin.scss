@@ -1,0 +1,27 @@
+// font
+@font-face {
+    font-family: "inter";
+    src: url("../font/inter/Inter-VariableFont_slnt,wght.ttf");
+}
+
+// color
+$color-black: #222222;
+$color-white: #FFF;
+$color-gray: #D9D9D9;
+$color-gray2: #EBEBEB;
+$color-gray3: #7D7A7A;
+$color-gray4: #E8E8E8;
+$color-gray-lt: #FBFBFB;
+$color-green: #77DD77;
+
+
+$baseFontSize: 16;
+
+@function rem($pixels) {
+    @return calc($pixels / $baseFontSize * 1rem);
+}
+
+
+@mixin animation {
+    transition: 0.3s;
+}
