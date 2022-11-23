@@ -5,12 +5,13 @@
 <main class="main">
     <!-- パンくずリスト -->
     <div class="breadcrumbs">
-        <ul class="breadcrumbs__list">
+        <!-- <ul class="breadcrumbs__list">
             <li><a href="#">トップ</a></li>
             <li><a href="#">ブログ</a></li>
             <li><a href="#">海外脱出</a></li>
             <li>ブログ記事タイトル</li>
-        </ul>
+        </ul> -->
+        <?php if(function_exists('bcn_display')) { bcn_display(); }?>
     </div>
     <!-- /パンくずリスト -->
     <!-- コンテナ -->
@@ -25,11 +26,14 @@
                     <li><a href="#">#ハッシュタグ</a></li>
                 </ul>
             </div>
+            <?php if(has_post_thumbnail()): ?>
             <div class="image">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/single/single_sample.png" alt="">
+                <img src="<?php the_post_thumbnail_url('large'); ?>" alt="">
             </div>
+            <?php endif; ?>
             <div class="text_body">
-                <div class="lead_s">
+                <?php echo the_content(); ?>
+                <!-- <div class="lead_s">
                     <p>導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ導入や要約などを書く部分だよ</p>
                 </div>
                 <div class="table-of-contents">
@@ -46,44 +50,12 @@
                     <p>本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ</p>
                     <p>本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ</p>
                     <p>本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ本文はこんな感じだよ</p>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- /記事コンテナ -->
         <!-- サイドコンテナ -->
-        <aside class="container__sub">
-            <div class="sticky-item">
-                <div class="container__sub__category">
-                    <span class="cat_title">●カテゴリ</span>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <span class="name">海外脱出</span>
-                                <span class="count">22</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="name">自己分析</span>
-                                <span class="count">1</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="name">日常</span>
-                                <span class="count">5</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="name">サステナビリティ</span>
-                                <span class="count">0</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </aside>
+        <?php get_sidebar(); ?>
         <!-- /サイドコンテナ -->
     </div>
     <!-- /コンテナ -->

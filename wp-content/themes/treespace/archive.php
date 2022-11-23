@@ -41,9 +41,9 @@
     </div>
     <!-- /ピックアップ -->
     <!-- カテゴリ -->
-    <div class="category">
+    <div class="select_category">
         <span>カテゴリ</span>
-        <ul class="category__list">
+        <ul class="select_category__list">
             <li class="is-active">
                 <a href="#">海外進出</a>
             </li>
@@ -61,17 +61,38 @@
     <!-- /カテゴリ -->
     <!-- 記事一覧 -->
     <div class="article">
+        <?php $args = array(
+            'posts_per_page'   => 5,
+            'offset'           => 0,
+            'category'         => '',
+            'category_name'    => '',
+            'orderby'          => 'date',
+            'order'            => 'DESC',
+            'include'          => '',
+            'exclude'          => '',
+            'meta_key'         => '',
+            'meta_value'       => '',
+            'post_type'        => 'post',
+            'post_mime_type'   => '',
+            'post_parent'      => '',
+            'author'       => '',
+            'post_status'      => 'publish',
+            'suppress_filters' => true
+        );
+        $posts_array = get_posts($args);
+        ?>
         <ul class="article__list">
+            <?php foreach ($posts_array as $post): ?>
             <li>
                 <div class="text">
                     <div class="text__top">
-                        <a href="#">
-                            <h2>タイトルタイトルタイトル</h2>
-                            <p>記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ</p>
+                        <a href="<?php the_permalink(); ?>">
+                            <h2><?php the_title(); ?></h2>
+                            <p><?php the_content(); ?></p>
                         </a>
                     </div>
                     <div class="text__bottom">
-                        <span class="date">20XX - XX - XX</span>
+                        <span class="date"><?php echo get_the_date('Y-m-d') ?></span>
                         <ul class="hashtags">
                             <li>#ハッシュタグ</li>
                             <li>#ハッシュタグ</li>
@@ -79,55 +100,12 @@
                     </div>
                 </div>
                 <div class="thumbnail">
-                    <a href="#">
-                        <img src="assets/img/archive/thumbnail_sample.png" alt="">
+                    <a href="<?php the_permalink(); ?>">
+                        <img src="<?php the_post_thumbnail_url('large'); ?>" alt="">
                     </a>
                 </div>
             </li>
-            <li>
-                <div class="text">
-                    <div class="text__top">
-                        <a href="#">
-                            <h2>タイトルタイトルタイトル</h2>
-                            <p>記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ</p>
-                        </a>
-                    </div>
-                    <div class="text__bottom">
-                        <span class="date">20XX - XX - XX</span>
-                        <ul class="hashtags">
-                            <li>#ハッシュタグ</li>
-                            <li>#ハッシュタグ</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/archive/thumbnail_sample.png" alt="">
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="text">
-                    <div class="text__top">
-                        <a href="#">
-                            <h2>タイトルタイトルタイトル</h2>
-                            <p>記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ記事の頭の文章だよ</p>
-                        </a>
-                    </div>
-                    <div class="text__bottom">
-                        <span class="date">20XX - XX - XX</span>
-                        <ul class="hashtags">
-                            <li>#ハッシュタグ</li>
-                            <li>#ハッシュタグ</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/archive/thumbnail_sample.png" alt="">
-                    </a>
-                </div>
-            </li>
+            <?php endforeach; ?>
         </ul>
     </div>
     <!-- /記事一覧 -->
