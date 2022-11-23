@@ -15,8 +15,7 @@
         <div class="header__inner">
             <div class="header__inner__logo">
                 <a href="/">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="">
-                    <span>社会人の海外渡航を応援するブログ</span>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="TreeSpace 日本脱出計画ブログ">
                 </a>
             </div>
             <div class="header__inner__search">
