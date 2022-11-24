@@ -2,7 +2,7 @@
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-<main class="main">
+<main class="main page">
     <!-- パンくずリスト -->
     <div class="breadcrumbs">
         <!-- <ul class="breadcrumbs__list">

@@ -7,7 +7,7 @@
 
 <?php get_header(); ?>
 
-<main class="main">
+<main class="main page">
     <h1>ブログ</h1>
     <!-- ピックアップ -->
     <div class="pickup">

@@ -42,3 +42,12 @@ function filter_to_wp_list_categories($output)
 	return $output;
 }
 add_filter('wp_list_categories', 'filter_to_wp_list_categories');
+
+
+// TinyMCE カスタマイズ
+function custom_editor_settings($initArray)
+{
+	$initArray['fontsize_formats'] = '12px 14px 16px 20px 24px 28px 32px 36px';
+	return $initArray;
+}
+add_filter('tiny_mce_before_init', 'custom_editor_settings', 5);
