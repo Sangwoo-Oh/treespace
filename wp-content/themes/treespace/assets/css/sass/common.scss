@@ -1,0 +1,79 @@
+@import "mixin";
+@import "base";
+
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: $color-black;
+    text-decoration: none;
+}
+
+// ヘッダー
+.header {
+    background-color: $color-gray-lt;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    &__inner {
+        @include contentWidth;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+
+        &__logo {
+            img {
+                width: 140px;
+                height: auto;
+            }
+        }
+
+        &__nav {
+            nav {
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    li {
+                        &:not(:last-child) {
+                            margin-right: 30px;
+                        }
+
+                        a {
+                            font-size: rem(16);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// フッター
+.footer {
+    background-color: $color-gray-lt;
+    padding: 20px 0;
+
+    &__menu {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 20px;
+
+        li {
+            a {
+                font-size: rem(14);
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        font-size: rem(12);
+    }
+}
+
+

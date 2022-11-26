@@ -88,7 +88,7 @@
                     <div class="text__top">
                         <a href="<?php the_permalink(); ?>">
                             <h2><?php the_title(); ?></h2>
-                            <p><?php the_content(); ?></p>
+                            <p><?php the_excerpt(); ?></p>
                         </a>
                     </div>
                     <div class="text__bottom">

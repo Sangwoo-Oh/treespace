@@ -25,3 +25,9 @@ $baseFontSize: 16;
 @mixin animation {
     transition: 0.3s;
 }
+
+
+@mixin contentWidth {
+    max-width: 1100px;
+    margin: 0 auto;
+}

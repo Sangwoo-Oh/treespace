@@ -1,0 +1,185 @@
+@charset "utf-8";
+
+@import "mixin";
+
+// メイン
+.main {
+    &.page {
+        padding: 20px 0;
+    }
+    @include contentWidth;
+
+    h1 {
+        padding: 30px 0;
+        font-size: rem(28);
+    }
+
+    // ピックアップ記事
+    .pickup {
+        margin-bottom: 100px;
+
+        &__title {
+            font-size: rem(20);
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+
+            &__item {
+                width: 100%;
+
+                &__thumbnail {
+                    margin-bottom: 10px;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                    }
+                }
+
+                h2 {
+                    font-size: rem(18);
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    // カテゴリ
+    .select_category {
+        display: flex;
+        align-items: center;
+        padding: 20px 10px;
+        border-top: solid 1px $color-gray2;
+        border-bottom: solid 1px $color-gray2;
+
+        span {
+            font-size: rem(16);
+            margin-right: 40px;
+            font-weight: bold;
+        }
+
+        &__list {
+            flex: 1;
+            display: flex;
+
+            li {
+                display: flex;
+
+                &:not(:last-child) {
+                    margin-right: 40px;
+                }
+
+                a {
+                    font-size: rem(16);
+                    display: block;
+                    padding: 10px 6px;
+                    border-radius: 8px;
+                    background-color: $color-gray2;
+                    font-weight: bold;
+                    min-width: 120px;
+                    text-align: center;
+                    @include animation;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+
+                &.is-active {
+                    a {
+                        background-color: $color-green;
+                    }
+                }
+            }
+        }
+    }
+
+    // 記事一覧
+    .article {
+        &__list {
+            &>li {
+                display: flex;
+                justify-content: space-between;
+                gap: 70px;
+                padding: 60px 15px;
+                border-bottom: solid 1px $color-gray2;
+
+                .text {
+                    flex: 1;
+
+                    &__top {
+                        h2 {
+                            font-size: rem(20);
+                            font-weight: bold;
+                            margin-bottom: 25px;
+                            @include animation;
+                        }
+
+                        p {
+                            font-size: rem(18);
+                            margin-bottom: 25px;
+                            @include animation;
+                        }
+
+                        a {
+                            &:hover {
+
+                                h2,
+                                p {
+                                    opacity: 0.6;
+                                }
+                            }
+                        }
+                    }
+
+                    &__bottom {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .date {
+                            font-size: rem(16);
+                        }
+
+                        .hashtags {
+                            display: flex;
+                            justify-content: flex-end;
+
+                            li {
+                                font-size: rem(16);
+
+                                &:not(:last-child) {
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .thumbnail {
+                    width: 300px;
+
+                    a {
+                        @include animation;
+                        display: block;
+
+                        &:hover {
+                            opacity: 0.6;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

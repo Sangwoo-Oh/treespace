@@ -1,8 +1,5 @@
-@charset "utf-8";
-
 @import "mixin";
 
-// メイン
 .main {
     &.page {
         padding: 20px 0;
@@ -386,5 +383,3 @@
         }
     }
 }
-
-// フッター
