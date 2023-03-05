@@ -41,48 +41,88 @@
     </div> -->
     <!-- /ピックアップ -->
     <!-- カテゴリ -->
+    <?php if (is_category()) : ?>
+        <h3><?php single_cat_title('カテゴリ：'); ?></h3>
+    <?php endif; ?>
     <div class="select_category">
         <span>カテゴリ</span>
         <ul class="select_category__list">
-            <li class="is-active">
-                <a href="#">海外進出</a>
-            </li>
-            <li>
-                <a href="#">自己分析</a>
-            </li>
-            <li>
-                <a href="#">日常</a>
-            </li>
-            <li>
-                <a href="#">サステナビリティ</a>
-            </li>
+            <?php $all_categories = get_categories(); ?>
+            <?php foreach ($all_categories as $cat) : ?>
+                <li <?php if (get_cat_name($cat->term_id) == single_cat_title('', false)) {
+                        echo 'class="is-active"';
+                    } ?>>
+                    <a href="<?php echo get_category_link($cat->term_id); ?>"><?php echo get_cat_name($cat->term_id); ?></a>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </div>
     <!-- /カテゴリ -->
     <!-- 記事一覧 -->
     <div class="article">
-        <?php $args = array(
-            'posts_per_page'   => 5,
-            'offset'           => 0,
-            'category'         => '',
-            'category_name'    => '',
-            'orderby'          => 'date',
-            'order'            => 'DESC',
-            'include'          => '',
-            'exclude'          => '',
-            'meta_key'         => '',
-            'meta_value'       => '',
-            'post_type'        => 'post',
-            'post_mime_type'   => '',
-            'post_parent'      => '',
-            'author'       => '',
-            'post_status'      => 'publish',
-            'suppress_filters' => true
-        );
+        <?php $paged = get_query_var('paged') ? get_query_var('paged') : 1; ?>
+        <?php
+
+        $args = [
+            'post_type'      => 'post',
+            'posts_per_page'  => 5,
+            'post_status'     => 'publish',
+            'order'           => 'DESC',
+            'orderby'         => 'date',
+            'paged'           => $paged
+        ];
+        if (is_category()) :
+            $cat = get_queried_object();
+            $cat_slug = $cat->slug;
+            $args['category_name'] = $cat_slug;
+        endif;
+
+        $query = new WP_Query($args);
+        if ($query->have_posts()) :
+            while ($query->have_posts()) :
+                $query->the_post();
+
+                //ループの中身
+        ?>
+                <ul class="article__list">
+                    <li>
+                        <div class="text">
+                            <div class="text__top">
+                                <a href="<?php the_permalink(); ?>">
+                                    <h2><?php the_title(); ?></h2>
+                                    <p><?php the_excerpt(); ?></p>
+                                </a>
+                            </div>
+                            <div class="text__bottom">
+                                <span class="date"><?php echo get_the_date('Y-m-d') ?></span>
+                                <ul class="hashtags">
+                                    <?php $categories = get_the_category(); ?>
+                                    <?php foreach ($categories as $cat) : ?>
+                                        <li>#<?php echo get_cat_name($cat->term_id); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="thumbnail">
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="<?php the_post_thumbnail_url('large'); ?>" alt="">
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+        <?php
+            endwhile;
+            wp_reset_postdata();
+            //ページネーションを追加するラッパー関数;
+            if (function_exists('wp_pagenavi')) {
+                wp_pagenavi(array('query' => $query));
+            }
+        endif;
+
         $posts_array = get_posts($args);
         ?>
-        <ul class="article__list">
-            <?php foreach ($posts_array as $post): ?>
+        <!-- <ul class="article__list">
+            <?php foreach ($posts_array as $post) : ?>
             <li>
                 <div class="text">
                     <div class="text__top">
@@ -94,8 +134,10 @@
                     <div class="text__bottom">
                         <span class="date"><?php echo get_the_date('Y-m-d') ?></span>
                         <ul class="hashtags">
-                            <li>#ハッシュタグ</li>
-                            <li>#ハッシュタグ</li>
+                            <?php $categories = get_the_category(); ?>
+                            <?php foreach ($categories as $cat) : ?>
+                                <li>#<?php echo get_cat_name($cat->term_id); ?></li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
@@ -106,9 +148,25 @@
                 </div>
             </li>
             <?php endforeach; ?>
-        </ul>
+        </ul> -->
     </div>
     <!-- /記事一覧 -->
+
+    <!-- カテゴリ（SP表示用） -->
+    <div class="select_category_sp">
+        <span>カテゴリ</span>
+        <ul class="select_category_sp__list">
+            <?php $all_categories = get_categories(); ?>
+            <?php foreach ($all_categories as $cat) : ?>
+                <li <?php if (get_cat_name($cat->term_id) == single_cat_title('', false)) {
+                        echo 'class="is-active"';
+                    } ?>>
+                    <a href="<?php echo get_category_link($cat->term_id); ?>"><?php echo get_cat_name($cat->term_id); ?></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <!-- /カテゴリ（SP表示用） -->
 </main>
 
 <?php get_footer(); ?>

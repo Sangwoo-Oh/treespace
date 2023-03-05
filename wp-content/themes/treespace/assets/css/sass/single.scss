@@ -23,6 +23,11 @@
                 font-size: rem(26);
                 line-height: 1.5;
                 margin-bottom: 30px;
+
+                @include mq(sp) {
+                    font-size: rem(20);
+                    margin-bottom: 20px;
+                }
             }
 
             .others {
@@ -52,37 +57,68 @@
             .image {
                 margin-bottom: 30px;
 
+                @include mq(sp) {
+                    margin-bottom: 15px;
+                }
+
                 img {
                     width: 100%;
-                    height: auto;
+                    height: 270px;
+                    object-fit: cover;
                     display: block;
+
+                    @include mq(sp) {
+                        height: 170px;
+                    }
                 }
             }
 
             .text_body {
-                // margin: 0 30px;
                 margin-bottom: 30px;
 
+                @include mq(sp) {
+                    margin-bottom: 15px;
+                }
+
                 h2 {
+                    font-size: rem(24);
                     line-height: 1.5;
                     margin-bottom: 30px;
                     padding: 20px 0;
                     border-top: solid 2px $color-black;
                     border-bottom: solid 2px $color-black;
+
+                    @include mq(sp) {
+                        line-height: 1.3;
+                        font-size: rem(18);
+                    }
                 }
 
                 h3 {
+                    font-size: rem(18);
                     line-height: 1.5;
                     margin-bottom: 30px;
                     border-left: solid 3px $color-black;
                     padding: 10px 10px 10px 10px;
                     background: $color-gray2;
                     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+                    @include mq(sp) {
+                        line-height: 1.3;
+                        font-size: rem(16);
+                    }
+
                 }
 
                 p {
                     line-height: 1.5;
                     margin-bottom: 20px;
+
+                    @include mq(sp) {
+                        line-height: 2;
+                        font-size: 90%;
+                        margin-bottom: 10px;
+                    }
                 }
 
                 span {
@@ -100,11 +136,22 @@
                 ul {
                     list-style-type: disc;
                     padding-left: 1em;
+
+                    li {
+                        line-height: 1.5;
+                        margin-bottom: 10px;
+
+                        @include mq(sp) {
+                            line-height: 2;
+                            font-size: 90%;
+                        }
+                    }
                 }
 
                 blockquote {
                     background-color: $color-gray4;
                     padding: 15px;
+                    margin-bottom: 20px;
 
                     p {
                         &:last-child {
@@ -151,6 +198,17 @@
                             font-weight: bold;
                         }
                     }
+                }
+
+                a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                iframe {
+                    width: 100%;
+                    height: 56.25%;
                 }
             }
         }
@@ -224,17 +282,31 @@ div#ez-toc-container {
     background: transparent;
     margin-bottom: 70px;
 
+    @include mq(sp) {
+        padding: 15px 0;
+        padding-right: 0 !important;
+        margin-bottom: 30px;
+    }
+
     .ez-toc-title-container {
         p.ez-toc-title {
             font-size: rem(20);
             font-weight: bold;
             display: block;
             margin-bottom: 10px;
+
+            @include mq(sp) {
+                font-size: rem(16);
+            }
         }
     }
 
     a {
         font-size: rem(18);
         margin-bottom: 10px;
+
+        @include mq(sp) {
+            font-size: rem(14);
+        }
     }
 }

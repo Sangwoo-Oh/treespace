@@ -36,7 +36,7 @@
             <div class="header__inner__nav">
                 <nav>
                     <ul>
-                        <li><a href="/blog/">ブログ</a></li>
+                        <li><a href="/blog/">ブログ一覧</a></li>
                         <!-- <li><a href="#">お問い合わせ</a></li> -->
                     </ul>
                 </nav>

@@ -18,19 +18,21 @@
     <div class="container">
         <!-- 記事コンテナ -->
         <div class="container__body">
-            <h1><?php the_title(); ?></h1>
-            <div class="others">
-                <span class="date"><?php echo get_the_date('Y-m-d') ?></span>
-                <ul class="hashtags">
-                    <li><a href="#">#ハッシュタグ</a></li>
-                    <li><a href="#">#ハッシュタグ</a></li>
-                </ul>
-            </div>
             <?php if(has_post_thumbnail()): ?>
             <div class="image">
                 <img src="<?php the_post_thumbnail_url('large'); ?>" alt="">
             </div>
             <?php endif; ?>
+            <h1><?php the_title(); ?></h1>
+            <div class="others">
+                <span class="date"><?php echo get_the_date('Y-m-d') ?></span>
+                <ul class="hashtags">
+                    <?php $categories = get_the_category(); ?>
+                    <?php foreach ($categories as $cat): ?>
+                        <li><a href="<?php echo get_category_link($cat->term_id); ?>">#<?php echo get_cat_name($cat->term_id); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
             <div class="text_body">
                 <?php echo the_content(); ?>
                 <!-- <div class="lead_s">
