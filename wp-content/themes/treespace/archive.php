@@ -10,7 +10,7 @@
 <main class="main page">
     <h1>ブログ</h1>
     <!-- ピックアップ -->
-    <div class="pickup">
+    <!-- <div class="pickup">
         <div class="pickup__title">ピックアップ記事</div>
         <ul class="pickup__list">
             <li class="pickup__list__item">
@@ -38,7 +38,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </div> -->
     <!-- /ピックアップ -->
     <!-- カテゴリ -->
     <div class="select_category">

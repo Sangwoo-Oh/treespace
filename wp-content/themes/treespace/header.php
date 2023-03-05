@@ -30,9 +30,9 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="TreeSpace 日本脱出計画ブログ">
                 </a>
             </div>
-            <div class="header__inner__search">
+            <!-- <div class="header__inner__search">
                 <input type="text" placeholder="検索...">
-            </div>
+            </div> -->
             <div class="header__inner__nav">
                 <nav>
                     <ul>
