@@ -42,11 +42,12 @@
     <!-- /ピックアップ -->
     <!-- カテゴリ -->
     <?php if (is_category()) : ?>
-        <h3><?php single_cat_title('カテゴリ：'); ?></h3>
+    <h2 class="category_message">カテゴリ『<?php single_cat_title(); ?>』の記事一覧</h2>
     <?php endif; ?>
     <div class="select_category">
         <span>カテゴリ</span>
         <ul class="select_category__list">
+            <li <?php if (!is_category()) { echo 'class="is-active"'; } ?>><a href="/blog/">すべて</a></li>
             <?php $all_categories = get_categories(); ?>
             <?php foreach ($all_categories as $cat) : ?>
                 <li <?php if (get_cat_name($cat->term_id) == single_cat_title('', false)) {
@@ -65,7 +66,7 @@
 
         $args = [
             'post_type'      => 'post',
-            'posts_per_page'  => 5,
+            'posts_per_page'  => 10,
             'post_status'     => 'publish',
             'order'           => 'DESC',
             'orderby'         => 'date',
@@ -121,34 +122,6 @@
 
         $posts_array = get_posts($args);
         ?>
-        <!-- <ul class="article__list">
-            <?php foreach ($posts_array as $post) : ?>
-            <li>
-                <div class="text">
-                    <div class="text__top">
-                        <a href="<?php the_permalink(); ?>">
-                            <h2><?php the_title(); ?></h2>
-                            <p><?php the_excerpt(); ?></p>
-                        </a>
-                    </div>
-                    <div class="text__bottom">
-                        <span class="date"><?php echo get_the_date('Y-m-d') ?></span>
-                        <ul class="hashtags">
-                            <?php $categories = get_the_category(); ?>
-                            <?php foreach ($categories as $cat) : ?>
-                                <li>#<?php echo get_cat_name($cat->term_id); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <a href="<?php the_permalink(); ?>">
-                        <img src="<?php the_post_thumbnail_url('large'); ?>" alt="">
-                    </a>
-                </div>
-            </li>
-            <?php endforeach; ?>
-        </ul> -->
     </div>
     <!-- /記事一覧 -->
 
@@ -156,6 +129,7 @@
     <div class="select_category_sp">
         <span>カテゴリ</span>
         <ul class="select_category_sp__list">
+            <li <?php if (!is_category()) { echo 'class="is-active"'; } ?>><a href="/blog/">すべて</a></li>
             <?php $all_categories = get_categories(); ?>
             <?php foreach ($all_categories as $cat) : ?>
                 <li <?php if (get_cat_name($cat->term_id) == single_cat_title('', false)) {

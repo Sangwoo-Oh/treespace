@@ -116,7 +116,7 @@
   }
 }
 .main .container__body .text_body p {
-  line-height: 1.5;
+  line-height: 2;
   margin-bottom: 20px;
 }
 @media screen and (max-width: 768px) {
@@ -193,7 +193,8 @@
 }
 .main .container__body .text_body iframe {
   width: 100%;
-  height: 56.25%;
+  height: auto;
+  aspect-ratio: 16/9;
 }
 .main .container__sub {
   width: 300px;

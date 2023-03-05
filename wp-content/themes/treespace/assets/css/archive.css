@@ -38,6 +38,10 @@
   font-size: 1.125rem;
   font-weight: bold;
 }
+.main .category_message {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
 .main .select_category {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -66,14 +70,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 20px;
+  -webkit-column-gap: 30px;
+     -moz-column-gap: 30px;
+          column-gap: 30px;
 }
 .main .select_category__list li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-.main .select_category__list li:not(:last-child) {
-  margin-right: 40px;
 }
 .main .select_category__list li a {
   font-size: 1rem;
@@ -242,4 +249,8 @@
   height: 140px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.main .article .wp-pagenavi {
+  padding: 30px 0;
+  text-align: center;
 }/*# sourceMappingURL=archive.css.map */
