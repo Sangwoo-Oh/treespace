@@ -35,7 +35,12 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px 0;
+  padding: 20px 15px;
+}
+@media screen and (min-width: 769px) {
+  .header__inner {
+    min-width: 960px;
+  }
 }
 .header__inner__logo img {
   width: 140px;
@@ -57,6 +62,30 @@ a {
 }
 .header__inner__nav nav ul li a {
   font-size: 1rem;
+}
+
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.main.page {
+  padding: 20px 15px;
+}
+@media screen and (min-width: 769px) {
+  .main {
+    min-width: 960px;
+  }
+}
+.main .breadcrumbs {
+  color: #7D7A7A;
+  margin-bottom: 30px;
+}
+.main .breadcrumbs a {
+  text-decoration: underline;
+}
+.main .breadcrumbs span, .main .breadcrumbs a {
+  font-size: 0.875rem;
+  color: #7D7A7A;
 }
 
 .footer {

@@ -21,7 +21,7 @@ a {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 0;
+        padding: 20px 15px;
 
         &__logo {
             img {
@@ -48,6 +48,26 @@ a {
                     }
                 }
             }
+        }
+    }
+}
+.main {
+    &.page {
+        padding: 20px 15px;
+    }
+    @include contentWidth;
+
+    // パンくずリスト
+    .breadcrumbs {
+        color: $color-gray3;
+        margin-bottom: 30px;
+        a {
+            text-decoration: underline;
+        }
+
+        span, a {
+            font-size: rem(14);
+            color: $color-gray3;
         }
     }
 }

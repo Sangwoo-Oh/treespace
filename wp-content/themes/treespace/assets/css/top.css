@@ -9,10 +9,18 @@
 .main.page {
   padding: 20px 0;
 }
+@media screen and (min-width: 769px) {
+  .main {
+    min-width: 960px;
+  }
+}
 .main .mainVisual {
   position: relative;
   margin-left: calc((100vw - 1100px) / -2);
   margin-right: calc((100vw - 1100px) / -2);
+}
+.main .mainVisual img {
+  width: 100%;
 }
 .main .mainVisual .concept {
   position: absolute;

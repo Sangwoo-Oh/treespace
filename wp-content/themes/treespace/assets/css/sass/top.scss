@@ -11,6 +11,10 @@
         margin-left: calc((100vw - 1100px) / -2);
         margin-right: calc((100vw - 1100px) / -2);
 
+        img {
+            width: 100%;
+        }
+
         .concept {
             position: absolute;
             left: calc((100vw - 1100px) / 2);

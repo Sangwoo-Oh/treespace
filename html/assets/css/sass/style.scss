@@ -10,10 +10,9 @@ html {
 
 @mixin contentWidth {
     max-width: 1320px;
+    min-width: 960px;
     margin: 0 auto;
 }
-
-body {}
 
 ul {
     list-style: none;
@@ -72,6 +71,7 @@ a {
 // メイン
 .main {
     @include contentWidth;
+    padding: 0 15px;
 
     h1 {
         padding: 30px 0;

@@ -4,10 +4,6 @@
 
 // メイン
 .main {
-    &.page {
-        padding: 20px 0;
-    }
-    @include contentWidth;
 
     h1 {
         padding: 30px 0;
