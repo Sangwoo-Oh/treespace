@@ -42,12 +42,14 @@
     <!-- /ピックアップ -->
     <!-- カテゴリ -->
     <?php if (is_category()) : ?>
-    <h2 class="category_message">カテゴリ『<?php single_cat_title(); ?>』の記事一覧</h2>
+        <h2 class="category_message">カテゴリ『<?php single_cat_title(); ?>』の記事一覧</h2>
     <?php endif; ?>
     <div class="select_category">
         <span>カテゴリ</span>
         <ul class="select_category__list">
-            <li <?php if (!is_category()) { echo 'class="is-active"'; } ?>><a href="/blog/">すべて</a></li>
+            <li <?php if (!is_category()) {
+                    echo 'class="is-active"';
+                } ?>><a href="/blog/">すべて</a></li>
             <?php $all_categories = get_categories(); ?>
             <?php foreach ($all_categories as $cat) : ?>
                 <li <?php if (get_cat_name($cat->term_id) == single_cat_title('', false)) {
@@ -129,7 +131,9 @@
     <div class="select_category_sp">
         <span>カテゴリ</span>
         <ul class="select_category_sp__list">
-            <li <?php if (!is_category()) { echo 'class="is-active"'; } ?>><a href="/blog/">すべて</a></li>
+            <li <?php if (!is_category()) {
+                    echo 'class="is-active"';
+                } ?>><a href="/blog/">すべて</a></li>
             <?php $all_categories = get_categories(); ?>
             <?php foreach ($all_categories as $cat) : ?>
                 <li <?php if (get_cat_name($cat->term_id) == single_cat_title('', false)) {

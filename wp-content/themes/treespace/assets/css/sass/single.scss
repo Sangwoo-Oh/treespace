@@ -2,6 +2,10 @@
 
 @import "mixin";
 
+body {
+    background-color: $color-gray5;
+}
+
 // メイン
 .main {
 
@@ -15,9 +19,9 @@
 
         &__body {
             flex: 1;
-            border: solid 1px $color-gray2;
+            // border: solid 1px $color-gray2;
             padding: 20px;
-            background-color: $color-gray-lt;
+            background-color: $color-white;
 
             h1 {
                 font-size: rem(26);
@@ -224,14 +228,14 @@
                 margin-top: 30px;
             }
 
-            .sticky-item {
-                position: sticky;
-                top: 20px;
-            }
-
             &__category {
-                .cat_title {
-                    font-size: rem(18);
+                border-radius: 30px;
+                background-color: $color-white;
+                padding: 30px;
+                margin-bottom: 30px;
+
+                &__title {
+                    font-size: rem(16);
                     font-weight: bold;
                     display: block;
                     margin-bottom: 10px;
@@ -239,30 +243,70 @@
 
                 ul {
                     li {
+                        display: flex;
+                        align-items: center;
+
+                        &::before {
+                            content: "";
+                            background-color: $color-gray;
+                            display: block;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50px;
+                            margin-right: 10px;
+                        }
+
                         &:not(:last-child) {
-                            border-bottom: solid 1px #FFF;
+                            margin-bottom: 20px;
                         }
 
                         a {
-                            padding: 12px 18px;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            background-color: $color-gray4;
                             font-size: rem(16);
-
-                            .count {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                width: 40px;
-                                height: 40px;
-                                color: $color-white;
-                                background-color: $color-gray3;
-                                font-weight: bold;
-                                border-radius: 50px;
+                            &:hover {
+                                text-decoration: underline;
                             }
                         }
+                    }
+                }
+            }
+
+            &__new-article {
+                border-radius: 30px;
+                background-color: $color-white;
+                padding: 30px;
+
+                &__title {
+                    font-size: rem(16);
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+
+                    &__mark {
+                        font-size: rem(12);
+                        font-weight: bold;
+                        display: block;
+                        margin-right: 10px;
+                        background-color: $color-brown;
+                        color: $color-white;
+                        padding: 2px 10px;
+                        border-radius: 5px;
+                    }
+                }
+
+                a {
+                    display: block;
+
+                    p {
+                        font-size: rem(14);
+                        margin-bottom: 10px;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 120px;
+                        object-fit: cover;
+                        display: block;
                     }
                 }
             }
