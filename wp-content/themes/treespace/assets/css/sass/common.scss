@@ -11,9 +11,13 @@ a {
     text-decoration: none;
 }
 
+body {
+    background-color: $color-gray5;
+}
+
 // ヘッダー
 .header {
-    background-color: $color-gray-lt;
+    background-color: $color-white;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
     &__inner {
@@ -51,21 +55,25 @@ a {
         }
     }
 }
+
 .main {
     &.page {
         padding: 20px 15px;
     }
+
     @include contentWidth;
 
     // パンくずリスト
     .breadcrumbs {
         color: $color-gray3;
         margin-bottom: 30px;
+
         a {
             text-decoration: underline;
         }
 
-        span, a {
+        span,
+        a {
             font-size: rem(14);
             color: $color-gray3;
         }
@@ -74,7 +82,7 @@ a {
 
 // フッター
 .footer {
-    background-color: $color-gray-lt;
+    background-color: $color-white;
     padding: 20px 0;
 
     &__menu {
@@ -95,5 +103,3 @@ a {
         font-size: rem(12);
     }
 }
-
-

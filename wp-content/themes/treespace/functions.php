@@ -13,15 +13,9 @@ function add_css_js()
 		wp_enqueue_style('archive_css', get_template_directory_uri() . '/assets/css/archive.css');
 	} else if (is_single()) {
 		wp_enqueue_style('single_css', get_template_directory_uri() . '/assets/css/single.css');
+	} else if (is_page_template('page-2coulmn.php')) {
+		wp_enqueue_style('page-2column_css', get_template_directory_uri() . '/assets/css/page-2column.css');
 	}
-	// if (is_single(46)) {
-	// 	wp_enqueue_style('store2', get_template_directory_uri().'/css/store2.css');
-	// }
-	//固定ページスラッグcontact か 投稿ID46の記事 か カスタム投稿タイプadd_newsの記事 か カスタム投稿タイプadd_newsの一覧だった場合、css/store2.cssを読み込み
-	// if (is_page('contact')||is_single(46) || is_singular('add_news') || is_post_type_archive('add_news')) {
-	// 	wp_enqueue_style('store2', get_template_directory_uri().'/css/store2.css');
-	// }
-
 
 	//JavaScriptの読み込みはここから
 
@@ -40,7 +34,6 @@ add_action('wp_enqueue_scripts', 'add_css_js');
 
 // アイキャッチ画像
 add_theme_support('post-thumbnails');
-
 
 // サイドバーにカテゴリーのリストを出力
 function filter_to_wp_list_categories($output)
@@ -95,3 +88,9 @@ function new_excerpt_more($more)
 	return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+// 外観にメニューを追加
+add_action( 'after_setup_theme', 'register_menu' );
+function register_menu() {
+	register_nav_menu( 'pickup', __( 'pickup posts', 'theme-slug' ) );
+}

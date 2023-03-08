@@ -2,6 +2,10 @@
 
 @import "mixin";
 
+body {
+    background-color: $color-gray5;
+}
+
 // メイン
 .main {
 
@@ -257,8 +261,7 @@
                         }
 
                         a {
-                            font-size: rem(14);
-
+                            font-size: rem(16);
                             &:hover {
                                 text-decoration: underline;
                             }
@@ -343,32 +346,12 @@ div#ez-toc-container {
         }
     }
 
-
-    .ez-toc-heading-level-2 {
-        line-height: 1.5;
-
-        a {
-            font-size: rem(16);
-
-            @include mq(sp) {
-                font-size: rem(14);
-            }
-        }
-    }
-
-    .ez-toc-heading-level-3 {
-        line-height: 1.5;
-
-        a {
-            font-size: rem(14);
-
-            @include mq(sp) {
-                font-size: rem(12);
-            }
-        }
-    }
-
     a {
+        font-size: rem(18);
         margin-bottom: 10px;
+
+        @include mq(sp) {
+            font-size: rem(14);
+        }
     }
 }

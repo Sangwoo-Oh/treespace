@@ -2,6 +2,10 @@
   font-family: "inter";
   src: url("../font/inter/Inter-VariableFont_slnt,wght.ttf");
 }
+body {
+  background-color: #F8F8F8;
+}
+
 .main .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -239,7 +243,7 @@
   margin-bottom: 20px;
 }
 .main .container__sub__category ul li a {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 .main .container__sub__category ul li a:hover {
   text-decoration: underline;
@@ -317,28 +321,12 @@ div#ez-toc-container .ez-toc-title-container p.ez-toc-title {
     font-size: 1rem;
   }
 }
-div#ez-toc-container .ez-toc-heading-level-2 {
-  line-height: 1.5;
-}
-div#ez-toc-container .ez-toc-heading-level-2 a {
-  font-size: 1rem;
+div#ez-toc-container a {
+  font-size: 1.125rem;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 768px) {
-  div#ez-toc-container .ez-toc-heading-level-2 a {
+  div#ez-toc-container a {
     font-size: 0.875rem;
   }
-}
-div#ez-toc-container .ez-toc-heading-level-3 {
-  line-height: 1.5;
-}
-div#ez-toc-container .ez-toc-heading-level-3 a {
-  font-size: 0.875rem;
-}
-@media screen and (max-width: 768px) {
-  div#ez-toc-container .ez-toc-heading-level-3 a {
-    font-size: 0.75rem;
-  }
-}
-div#ez-toc-container a {
-  margin-bottom: 10px;
-}/*# sourceMappingURL=single.css.map */
+}/*# sourceMappingURL=page-2column.css.map */

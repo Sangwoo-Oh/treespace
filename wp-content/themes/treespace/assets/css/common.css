@@ -18,8 +18,12 @@ a {
   text-decoration: none;
 }
 
+body {
+  background-color: #F8F8F8;
+}
+
 .header {
-  background-color: #FBFBFB;
+  background-color: #FFF;
   -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -83,13 +87,14 @@ a {
 .main .breadcrumbs a {
   text-decoration: underline;
 }
-.main .breadcrumbs span, .main .breadcrumbs a {
+.main .breadcrumbs span,
+.main .breadcrumbs a {
   font-size: 0.875rem;
   color: #7D7A7A;
 }
 
 .footer {
-  background-color: #FBFBFB;
+  background-color: #FFF;
   padding: 20px 0;
 }
 .footer__menu {

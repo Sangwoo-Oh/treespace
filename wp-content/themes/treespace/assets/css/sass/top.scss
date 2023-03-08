@@ -1,9 +1,6 @@
 @import "mixin";
 
 .main {
-    &.page {
-        padding: 20px 0;
-    }
     max-width: 100%;
     min-width: auto;
 
@@ -13,6 +10,7 @@
         background-image: url("../img/top/main_visual.png");
         background-position: center 10%;
         background-size: cover;
+
         @include mq(tab) {
             min-width: 960px;
         }
@@ -37,9 +35,9 @@
         .concept {
             position: absolute;
             bottom: 40px;
-            padding: 35px 20px;
+            padding: 20px;
             background-color: rgba($color-white, 0.5);
-            font-size: rem(24);
+            font-size: rem(26);
             font-weight: bold;
             line-height: 1.7;
 
@@ -51,361 +49,91 @@
         }
     }
 
-    h1 {
-        padding: 30px 0;
-        font-size: rem(28);
-    }
+    &__inner {
+        margin: 0 auto;
+        @include contentWidth;
+        padding: 15px;
 
-    // ピックアップ記事
-    .pickup {
-        margin-bottom: 100px;
+        .pickup {
+            background-color: rgba($color-brown, 0.2);
+            padding: 20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 30px;
 
-        &__title {
-            font-size: rem(20);
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-
-        &__list {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-
-            &__item {
-                width: 100%;
-
-                &__thumbnail {
-                    margin-bottom: 10px;
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                        display: block;
-                    }
-                }
-
-                h2 {
-                    font-size: rem(18);
-                    font-weight: bold;
-                }
-            }
-        }
-    }
-
-    // カテゴリ
-    .select_category {
-        display: flex;
-        align-items: center;
-        padding: 20px 10px;
-        border-top: solid 1px $color-gray2;
-        border-bottom: solid 1px $color-gray2;
-
-        span {
-            font-size: rem(16);
-            margin-right: 40px;
-            font-weight: bold;
-        }
-
-        &__list {
-            flex: 1;
-            display: flex;
-
-            li {
-                display: flex;
-
-                &:not(:last-child) {
-                    margin-right: 40px;
-                }
-
-                a {
-                    font-size: rem(16);
-                    display: block;
-                    padding: 10px 6px;
-                    border-radius: 8px;
-                    background-color: $color-gray2;
-                    font-weight: bold;
-                    min-width: 120px;
-                    text-align: center;
-                    @include animation;
-
-                    &:hover {
-                        opacity: 0.6;
-                    }
-                }
-
-                &.is-active {
-                    a {
-                        background-color: $color-green;
-                    }
-                }
-            }
-        }
-    }
-
-    // 記事一覧
-    .article {
-        &__list {
-            &>li {
-                display: flex;
-                justify-content: space-between;
-                gap: 70px;
-                padding: 60px 15px;
-                border-bottom: solid 1px $color-gray2;
-
-                .text {
-                    flex: 1;
-
-                    &__top {
-                        h2 {
-                            font-size: rem(20);
-                            font-weight: bold;
-                            margin-bottom: 25px;
-                            @include animation;
-                        }
-
-                        p {
-                            font-size: rem(18);
-                            margin-bottom: 25px;
-                            @include animation;
-                        }
-
-                        a {
-                            &:hover {
-
-                                h2,
-                                p {
-                                    opacity: 0.6;
-                                }
-                            }
-                        }
-                    }
-
-                    &__bottom {
-                        display: flex;
-                        justify-content: space-between;
-
-                        .date {
-                            font-size: rem(16);
-                        }
-
-                        .hashtags {
-                            display: flex;
-                            justify-content: flex-end;
-
-                            li {
-                                font-size: rem(16);
-
-                                &:not(:last-child) {
-                                    margin-right: 5px;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .thumbnail {
-                    width: 300px;
-
-                    a {
-                        @include animation;
-                        display: block;
-
-                        &:hover {
-                            opacity: 0.6;
-                        }
-
-                        img {
-                            width: 100%;
-                            height: auto;
-                            display: block;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // パンくずリスト
-    .breadcrumbs {
-        color: $color-gray3;
-        a {
-            text-decoration: underline;
-        }
-
-        span, a {
-            font-size: rem(14);
-            color: $color-gray3;
-        }
-    }
-
-    // コンテナ
-    .container {
-        display: flex;
-
-        &__body {
-            flex: 1;
-            border: solid 1px $color-gray2;
-            padding: 0 20px;
-            background-color: $color-gray-lt;
-
-            h1 {
+            &__title {
                 font-size: rem(24);
-                line-height: 1.5;
-            }
-
-            .others {
-                display: flex;
-                justify-content: space-between;
+                font-weight: bold;
                 margin-bottom: 30px;
+                text-align: center;
 
-                .date {
+                @include mq(sp) {
                     font-size: rem(18);
-                }
-
-                .hashtags {
-                    display: flex;
-
-                    li {
-                        font-size: rem(18);
-
-                        &:not(:last-child) {
-                            margin-right: 5px;
-                        }
-
-                        a {}
-                    }
-                }
-            }
-
-            .image {
-                margin-bottom: 30px;
-
-                img {
-                    width: 100%;
-                    height: auto;
-                    display: block;
-                }
-            }
-
-            .text_body {
-                // margin: 0 30px;
-                margin-bottom: 30px;
-
-                h2 {
-                    line-height: 1.5;
-                    margin-bottom: 30px;
-                }
-
-                h3 {
-                    line-height: 1.5;
-                    margin-bottom: 30px;
-                }
-
-                p {
-                    line-height: 1.5;
                     margin-bottom: 20px;
                 }
+            }
 
-                span {
-                    line-height: 1.5;
+            &__list {
+                display: flex;
+                justify-content: space-between;
+                gap: 30px;
+
+                @include mq(sp) {
+                    flex-direction: column;
                 }
 
-                hr {
-                    height: 1px;
-                    background-color: $color-gray;
-                    margin: 30px 0;
-                    margin-right: -30px;
-                    margin-left: -30px;
-                }
+                &__item {
+                    width: 100%;
 
-                .lead_s {
-                    margin-bottom: 30px;
-
-                    &>p {
-                        font-size: rem(20);
-                        line-height: 1.5;
-                    }
-                }
-
-                .main_s {
-                    &>p {
-                        font-size: rem(20);
-                        line-height: 1.5;
-                        margin-bottom: 30px;
-                    }
-                }
-
-                .table-of-contents {
-                    margin-left: -30px;
-                    margin-right: -30px;
-                    padding: 30px;
-                    margin-bottom: 50px;
-                    border-top: solid 1px $color-gray;
-                    border-bottom: solid 1px $color-gray;
-
-                    span {
-                        font-size: rem(20);
-                        font-weight: bold;
+                    &__thumbnail {
                         margin-bottom: 10px;
-                        display: block;
-                    }
 
-                    &>ol {
-                        li {
-                            font-size: rem(18);
-                            font-weight: bold;
+                        img {
+                            display: block;
+                            width: 100%;
+                            height: 140px;
+                            object-fit: cover;
                         }
                     }
+
+                    h2 {
+                        font-size: rem(18);
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            &__link {
+                margin-top: 15px;
+                display: block;
+                text-align: right;
+
+                &:hover {
+                    text-decoration: underline;
                 }
             }
         }
 
-        &__sub {
-            width: 300px;
-            margin-left: 35px;
+        .about-us {
+            background-color: rgba($color-brown, 0.2);
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 30px;
 
-            .sticky-item {
-                position: sticky;
-                top: 20px;
-            }
+            a {
+                text-align: center;
+                display: block;
+                font-size: rem(24);
+                font-weight: bold;
+                text-align: center;
+                padding: 30px 20px;
 
-            &__category {
-                .cat_title {
+                @include mq(sp) {
                     font-size: rem(18);
-                    font-weight: bold;
-                    display: block;
-                    margin-bottom: 10px;
                 }
 
-                ul {
-                    li {
-                        &:not(:last-child) {
-                            border-bottom: solid 1px #FFF;
-                        }
-
-                        a {
-                            padding: 12px 18px;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            background-color: $color-gray4;
-                            font-size: rem(16);
-
-                            .name {}
-
-                            .count {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                width: 40px;
-                                height: 40px;
-                                color: $color-white;
-                                background-color: $color-gray3;
-                                font-weight: bold;
-                                border-radius: 50px;
-                            }
-                        }
-                    }
+                &:hover {
+                    text-decoration: underline;
                 }
             }
         }

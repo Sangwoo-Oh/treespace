@@ -10,35 +10,30 @@
 <main class="main page">
     <h1>ブログ</h1>
     <!-- ピックアップ -->
-    <!-- <div class="pickup">
+    <div class="pickup">
         <div class="pickup__title">ピックアップ記事</div>
         <ul class="pickup__list">
+        <?php
+        $menu_name = 'pickup';
+        if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+            $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+            $menu_items = wp_get_nav_menu_items($menu->term_id);
+            foreach ( (array) $menu_items as $key => $menu_item ) {
+        ?>
             <li class="pickup__list__item">
-                <a href="#">
+                <a href="<?php echo $menu_item->url; ?>">
                     <div class="pickup__list__item__thumbnail">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/archive/thumbnail_sample.png" alt="">
+                        <img src="<?php echo get_the_post_thumbnail_url($menu_item->object_id); ?>" alt="">
                     </div>
-                    <h2>ここに見出しが入りますここに見出しが入りますここに見出しが入りますここに見出しが入ります</h2>
+                    <h2><?php echo $menu_item->title; ?></h2>
                 </a>
             </li>
-            <li class="pickup__list__item">
-                <a href="#">
-                    <div class="pickup__list__item__thumbnail">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/archive/thumbnail_sample.png" alt="">
-                    </div>
-                    <h2>ここに見出しが入りますここに見出しが入りますここに見出しが入りますここに見出しが入ります</h2>
-                </a>
-            </li>
-            <li class="pickup__list__item">
-                <a href="#">
-                    <div class="pickup__list__item__thumbnail">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/archive/thumbnail_sample.png" alt="">
-                    </div>
-                    <h2>ここに見出しが入りますここに見出しが入りますここに見出しが入りますここに見出しが入ります</h2>
-                </a>
-            </li>
+        <?php
+            }
+        }
+        ?>
         </ul>
-    </div> -->
+    </div>
     <!-- /ピックアップ -->
     <!-- カテゴリ -->
     <?php if (is_category()) : ?>
