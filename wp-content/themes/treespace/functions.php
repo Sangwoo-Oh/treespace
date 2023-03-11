@@ -92,5 +92,12 @@ add_filter('excerpt_more', 'new_excerpt_more');
 // 外観にメニューを追加
 add_action( 'after_setup_theme', 'register_menu' );
 function register_menu() {
-	register_nav_menu( 'pickup', __( 'pickup posts', 'theme-slug' ) );
+
+	register_nav_menus( array(
+		'pickup' => 'pickup',
+		'category' => 'category',
+		'top_escape' => 'top_escape',
+		'top_experience' => 'top_experience',
+		'top_life' => 'top_life',
+	) );
 }

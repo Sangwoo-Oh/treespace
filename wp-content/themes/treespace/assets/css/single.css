@@ -138,6 +138,7 @@
 .main .container__body .text_body ul {
   list-style-type: disc;
   padding-left: 1em;
+  text-indent: -1em;
 }
 .main .container__body .text_body ul li {
   line-height: 1.5;
@@ -145,6 +146,20 @@
 }
 @media screen and (max-width: 768px) {
   .main .container__body .text_body ul li {
+    line-height: 2;
+    font-size: 90%;
+  }
+}
+.main .container__body .text_body ol {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+.main .container__body .text_body ol li {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .main .container__body .text_body ol li {
     line-height: 2;
     font-size: 90%;
   }
@@ -316,6 +331,9 @@ div#ez-toc-container .ez-toc-title-container p.ez-toc-title {
   div#ez-toc-container .ez-toc-title-container p.ez-toc-title {
     font-size: 1rem;
   }
+}
+div#ez-toc-container ul {
+  text-indent: 0;
 }
 div#ez-toc-container .ez-toc-heading-level-2 {
   line-height: 1.5;

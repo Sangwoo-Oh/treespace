@@ -43,16 +43,24 @@
         <span>カテゴリ</span>
         <ul class="select_category__list">
             <li <?php if (!is_category()) {
-                    echo 'class="is-active"';
-                } ?>><a href="/blog/">すべて</a></li>
-            <?php $all_categories = get_categories(); ?>
-            <?php foreach ($all_categories as $cat) : ?>
-                <li <?php if (get_cat_name($cat->term_id) == single_cat_title('', false)) {
+                        echo 'class="is-active"';
+                    } ?>><a href="/blog/">すべて</a></li>
+            <?php
+            $menu_name = 'category';
+            if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+                $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                $menu_items = wp_get_nav_menu_items($menu->term_id);
+                foreach ( (array) $menu_items as $key => $menu_item ) {
+            ?>
+                <li <?php if ($menu_item->title == single_cat_title('', false)) {
                         echo 'class="is-active"';
                     } ?>>
-                    <a href="<?php echo get_category_link($cat->term_id); ?>"><?php echo get_cat_name($cat->term_id); ?></a>
+                    <a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a>
                 </li>
-            <?php endforeach; ?>
+            <?php
+                }
+            }
+            ?>
         </ul>
     </div>
     <!-- /カテゴリ -->

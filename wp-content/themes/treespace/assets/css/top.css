@@ -7,8 +7,8 @@
   min-width: auto;
 }
 .main .mainVisual {
-  height: 400px;
-  background-image: url("../img/top/main_visual.png");
+  height: 220px;
+  background-image: url("../img/top/main_visual.webp");
   background-position: center 10%;
   background-size: cover;
 }
@@ -47,12 +47,12 @@
 }
 .main .mainVisual .concept {
   position: absolute;
-  bottom: 40px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 1.625rem;
+  font-size: 1.875rem;
   font-weight: bold;
   line-height: 1.7;
+  color: #FFF;
+  text-shadow: 1px 1px 6px rgba(34, 34, 34, 0.3);
+  bottom: 20px;
 }
 @media screen and (max-width: 768px) {
   .main .mainVisual .concept {
@@ -131,6 +131,72 @@
   text-align: right;
 }
 .main__inner .pickup__link:hover {
+  text-decoration: underline;
+}
+.main__inner .catSection {
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 30px;
+}
+.main__inner .catSection__title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .main__inner .catSection__title {
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+  }
+}
+.main__inner .catSection__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 30px;
+}
+@media screen and (max-width: 768px) {
+  .main__inner .catSection__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.main__inner .catSection__list__item {
+  width: 100%;
+}
+.main__inner .catSection__list__item__thumbnail {
+  margin-bottom: 10px;
+}
+.main__inner .catSection__list__item__thumbnail img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main__inner .catSection__list__item h2 {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+.main__inner .catSection__link {
+  display: block;
+  margin: 30px auto 10px;
+  background-color: rgba(214, 173, 112, 0.2);
+  border-radius: 50px;
+  width: 100%;
+  max-width: 660px;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+.main__inner .catSection__link:hover {
   text-decoration: underline;
 }
 .main__inner .about-us {

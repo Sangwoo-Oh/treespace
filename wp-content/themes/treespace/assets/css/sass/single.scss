@@ -136,6 +136,22 @@
                 ul {
                     list-style-type: disc;
                     padding-left: 1em;
+                    text-indent: -1em;
+
+                    li {
+                        line-height: 1.5;
+                        margin-bottom: 10px;
+
+                        @include mq(sp) {
+                            line-height: 2;
+                            font-size: 90%;
+                        }
+                    }
+                }
+
+                ol {
+                    padding-left: 1em;
+                    text-indent: -1em;
 
                     li {
                         line-height: 1.5;
@@ -343,7 +359,9 @@ div#ez-toc-container {
         }
     }
 
-
+    ul {
+        text-indent: 0;
+    }
     .ez-toc-heading-level-2 {
         line-height: 1.5;
 
