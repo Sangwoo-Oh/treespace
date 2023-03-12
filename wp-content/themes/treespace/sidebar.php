@@ -13,6 +13,29 @@
                 ?>
             </ul>
         </div>
+        <?php
+        $menu_name = 'top_keyword';
+        if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+        ?>
+        <div class="container__sub__keyword">
+            <span class="container__sub__category__title">キーワードからさがす</span>
+            <ul>
+        <?php
+            $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+            $menu_items = wp_get_nav_menu_items($menu->term_id);
+            foreach ( (array) $menu_items as $key => $menu_item ) {
+        ?>
+                <li>
+                    <a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a>
+                </li>
+        <?php
+            }
+        ?>
+            </ul>
+        </div>
+        <?php
+        }
+        ?>
         <div class="container__sub__new-article">
             <span class="container__sub__new-article__title">
                 <span class="container__sub__new-article__title__mark">New!</span>

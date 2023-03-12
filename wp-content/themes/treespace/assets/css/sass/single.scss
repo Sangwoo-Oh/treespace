@@ -41,6 +41,7 @@
 
                 .hashtags {
                     display: flex;
+                    flex-wrap: wrap;
 
                     li {
                         font-size: rem(16);
@@ -48,8 +49,6 @@
                         &:not(:last-child) {
                             margin-right: 5px;
                         }
-
-                        a {}
                     }
                 }
             }
@@ -277,6 +276,43 @@
 
                             &:hover {
                                 text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__keyword {
+                border-radius: 30px;
+                background-color: $color-white;
+                padding: 30px;
+                margin-bottom: 30px;
+
+                &__title {
+                    font-size: rem(16);
+                    font-weight: bold;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    li {
+                        a {
+                            display: inline-block;
+                            border-radius: 30px;
+                            background-color: rgba($color-gray, 0.1);
+                            border: solid 1px $color-brown;
+                            padding: 2px 10px;
+                            font-size: rem(12);
+
+                            &:hover {
+                                @include animation;
+                                background-color: $color-brown;
+                                color: $color-white;
                             }
                         }
                     }

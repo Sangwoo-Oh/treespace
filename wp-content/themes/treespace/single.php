@@ -21,10 +21,12 @@
             <div class="others">
                 <span class="date"><?php echo get_the_date('Y-m-d') ?></span>
                 <ul class="hashtags">
-                    <?php $categories = get_the_category(); ?>
-                    <?php foreach ($categories as $cat): ?>
-                        <li><a href="<?php echo get_category_link($cat->term_id); ?>">#<?php echo get_cat_name($cat->term_id); ?></a></li>
-                    <?php endforeach; ?>
+                    <?php $tags = get_the_tags(); ?>
+                    <?php if ($tags) : ?>
+                        <?php foreach ($tags as $tag) : ?>
+                            <li><a href="<?php echo get_tag_link($tag->term_id); ?>">#<?php echo $tag->name; ?></a></li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="text_body">

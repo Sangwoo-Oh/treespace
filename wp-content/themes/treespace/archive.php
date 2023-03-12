@@ -10,6 +10,7 @@
 <main class="main page">
     <h1>ブログ</h1>
     <!-- ピックアップ -->
+    <?php if (!is_category() && !is_tag()) :?>
     <div class="pickup">
         <div class="pickup__title">ピックアップ記事</div>
         <ul class="pickup__list">
@@ -34,11 +35,18 @@
         ?>
         </ul>
     </div>
+    <?php endif; ?>
     <!-- /ピックアップ -->
+
     <!-- カテゴリ -->
     <?php if (is_category()) : ?>
         <h2 class="category_message">カテゴリ『<?php single_cat_title(); ?>』の記事一覧</h2>
     <?php endif; ?>
+    <?php if (is_tag()) :?>
+        <h2 class="category_message">タグ『<?php single_tag_title(); ?>』の記事一覧</h2>
+    <?php endif; ?>
+
+    <?php if (!is_tag()) : ?>
     <div class="select_category">
         <span>カテゴリ</span>
         <ul class="select_category__list">
@@ -63,6 +71,8 @@
             ?>
         </ul>
     </div>
+    <?php endif; ?>
+
     <!-- /カテゴリ -->
     <!-- 記事一覧 -->
     <div class="article">
@@ -77,10 +87,17 @@
             'orderby'         => 'date',
             'paged'           => $paged
         ];
+
         if (is_category()) :
             $cat = get_queried_object();
             $cat_slug = $cat->slug;
             $args['category_name'] = $cat_slug;
+        endif;
+
+        if (is_tag()) :
+            $tag = get_queried_object();
+            $tag_slug = $tag->slug;
+            $args['tag'] = $tag_slug;
         endif;
 
         $query = new WP_Query($args);
@@ -90,6 +107,8 @@
 
                 //ループの中身
         ?>
+
+
                 <ul class="article__list">
                     <li>
                         <div class="text">
@@ -102,10 +121,12 @@
                             <div class="text__bottom">
                                 <span class="date"><?php echo get_the_date('Y-m-d') ?></span>
                                 <ul class="hashtags">
-                                    <?php $categories = get_the_category(); ?>
-                                    <?php foreach ($categories as $cat) : ?>
-                                        <li>#<?php echo get_cat_name($cat->term_id); ?></li>
-                                    <?php endforeach; ?>
+                                    <?php $tags = get_the_tags(); ?>
+                                    <?php if ($tags) : ?>
+                                        <?php foreach ($tags as $tag) : ?>
+                                            <li>#<?php echo $tag->name; ?></li>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>

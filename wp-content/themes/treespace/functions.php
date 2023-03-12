@@ -99,5 +99,6 @@ function register_menu() {
 		'top_escape' => 'top_escape',
 		'top_experience' => 'top_experience',
 		'top_life' => 'top_life',
+		'top_keyword' => 'top_keyword',
 	) );
 }
