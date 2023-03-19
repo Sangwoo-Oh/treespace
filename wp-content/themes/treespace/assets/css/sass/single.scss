@@ -61,14 +61,11 @@
                 }
 
                 img {
-                    width: 100%;
-                    height: 270px;
-                    object-fit: cover;
                     display: block;
-
-                    @include mq(sp) {
-                        height: 170px;
-                    }
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    aspect-ratio: 16/9;
                 }
             }
 
@@ -140,6 +137,12 @@
                     li {
                         line-height: 1.5;
                         margin-bottom: 10px;
+                        padding-left: 1em;
+                        text-indent: -1em;
+
+                        p {
+                            margin-bottom: 0;
+                        }
 
                         @include mq(sp) {
                             line-height: 2;
@@ -155,6 +158,12 @@
                     li {
                         line-height: 1.5;
                         margin-bottom: 10px;
+                        padding-left: 1em;
+                        text-indent: -1em;
+
+                        p {
+                            margin-bottom: 0;
+                        }
 
                         @include mq(sp) {
                             line-height: 2;
@@ -221,10 +230,14 @@
                     }
                 }
 
-                iframe {
+                iframe:not(.wp-embedded-content) {
                     width: 100%;
                     height: auto;
                     aspect-ratio: 16/9;
+                }
+
+                iframe {
+                    width: 100%;
                 }
             }
         }
@@ -352,10 +365,11 @@
                     }
 
                     img {
-                        width: 100%;
-                        height: 120px;
-                        object-fit: cover;
                         display: block;
+                        width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                        aspect-ratio: 16/9;
                     }
                 }
             }
@@ -397,7 +411,14 @@ div#ez-toc-container {
 
     ul {
         text-indent: 0;
+        padding-left: 0;
+
+        li {
+            text-indent: 0;
+            padding-left: 0;
+        }
     }
+
     .ez-toc-heading-level-2 {
         line-height: 1.5;
 
